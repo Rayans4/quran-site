@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+OCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -6,278 +6,63 @@
 <title>القرآن الكريم</title>
 <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --gold:#c9a84c;
-  --gold-light:#e8c97a;
-  --bg:#0a0c0f;
-  --card:#111318;
-  --card2:#181c23;
-  --text:#f0ead6;
-  --muted:#9a9080;
-  --border:rgba(201,168,76,0.18);
-}
+:root{--gold:#c9a84c;--gold-light:#e8c97a;--bg:#0a0c0f;--card:#111318;--card2:#181c23;--text:#f0ead6;--muted:#9a9080;--border:rgba(201,168,76,0.18);}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Cairo',sans-serif;
-  min-height:100vh;
-}
-header{
-  text-align:center;
-  padding:2.5rem 1rem 1.8rem;
-  border-bottom:1px solid var(--border);
-  background:linear-gradient(180deg,rgba(10,12,15,1) 0%,rgba(10,12,15,0.8) 100%);
-}
-.bismillah{
-  font-family:'Scheherazade New',serif;
-  font-size:clamp(1.8rem,5vw,2.8rem);
-  color:var(--gold);
-  margin-bottom:0.4rem;
-  text-shadow:0 0 40px rgba(201,168,76,0.25);
-}
-header h1{
-  font-family:'Scheherazade New',serif;
-  font-size:clamp(1rem,2.5vw,1.4rem);
-  color:var(--muted);
-  font-weight:400;
-}
-.line{
-  display:block;
-  margin:1rem auto 0;
-  width:180px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-.bar{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(10,12,15,0.97);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  padding:0.85rem 1.5rem;
-  display:flex;
-  gap:0.8rem;
-  align-items:center;
-  flex-wrap:wrap;
-}
-.bar input{
-  flex:1;
-  min-width:180px;
-  background:var(--card2);
-  border:1px solid var(--border);
-  border-radius:50px;
-  padding:0.5rem 1.1rem;
-  color:var(--text);
-  font-family:'Cairo',sans-serif;
-  font-size:0.88rem;
-  outline:none;
-  direction:rtl;
-  transition:border-color 0.2s;
-}
+body{background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;min-height:100vh;}
+header{text-align:center;padding:2.5rem 1rem 1.5rem;border-bottom:1px solid var(--border);}
+.bismillah{font-family:'Scheherazade New',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--gold);margin-bottom:0.4rem;}
+header h1{font-family:'Scheherazade New',serif;font-size:clamp(0.95rem,2.5vw,1.4rem);color:var(--muted);font-weight:400;}
+.line{display:block;margin:0.8rem auto 0;width:180px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.bar{position:sticky;top:0;z-index:50;background:rgba(10,12,15,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.8rem 1.2rem;display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;}
+.bar input{flex:1;min-width:180px;background:var(--card2);border:1px solid var(--border);border-radius:50px;padding:0.5rem 1rem;color:var(--text);font-family:'Cairo',sans-serif;font-size:0.88rem;outline:none;direction:rtl;}
 .bar input:focus{border-color:var(--gold);}
-.bar input::placeholder{color:var(--muted);}
-.bar select{
-  background:var(--card2);
-  border:1px solid var(--border);
-  border-radius:50px;
-  padding:0.5rem 1.1rem;
-  color:var(--text);
-  font-family:'Cairo',sans-serif;
-  font-size:0.85rem;
-  outline:none;
-  cursor:pointer;
-  min-width:160px;
-  transition:border-color 0.2s;
-}
-.bar select:focus{border-color:var(--gold);}
-main{
-  max-width:1300px;
-  margin:0 auto;
-  padding:1.8rem 1.5rem 9rem;
-}
-.label{
-  font-size:0.72rem;
-  color:var(--gold);
-  letter-spacing:0.12em;
-  margin-bottom:1.1rem;
-  padding-right:0.9rem;
-  border-right:3px solid var(--gold);
-  display:block;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(195px,1fr));
-  gap:0.9rem;
-}
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:1rem 1.1rem;
-  cursor:pointer;
-  transition:all 0.2s ease;
-  display:flex;
-  align-items:center;
-  gap:0.85rem;
-  user-select:none;
-}
-.card:hover{
-  border-color:rgba(201,168,76,0.45);
-  transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(0,0,0,0.45);
-}
-.card.active{
-  border-color:var(--gold);
-  background:var(--card2);
-}
-.num{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:#0d1520;
-  border:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:0.76rem;
-  color:var(--gold);
-  font-weight:700;
-  flex-shrink:0;
-}
+.bar select{background:var(--card2);border:1px solid var(--border);border-radius:50px;padding:0.5rem 1rem;color:var(--text);font-family:'Cairo',sans-serif;font-size:0.85rem;outline:none;cursor:pointer;min-width:155px;}
+main{max-width:1300px;margin:0 auto;padding:1.5rem 1.2rem 9rem;}
+.label{font-size:0.72rem;color:var(--gold);letter-spacing:0.12em;margin-bottom:1rem;padding-right:0.8rem;border-right:3px solid var(--gold);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:0.85rem;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem 1.1rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:0.8rem;}
+.card:hover{border-color:rgba(201,168,76,0.5);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.4);}
+.card.active{border-color:var(--gold);background:var(--card2);}
+.num{width:40px;height:40px;border-radius:50%;background:#0d1520;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.76rem;color:var(--gold);font-weight:700;flex-shrink:0;}
 .info{flex:1;min-width:0;}
-.name{
-  font-family:'Scheherazade New',serif;
-  font-size:1.1rem;
-  color:var(--text);
-  display:block;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.ayat{font-size:0.7rem;color:var(--muted);margin-top:2px;}
-.tag{
-  font-size:0.62rem;
-  padding:2px 8px;
-  border-radius:20px;
-  flex-shrink:0;
-}
+.name{font-family:'Scheherazade New',serif;font-size:1.08rem;color:var(--text);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ayat{font-size:0.7rem;color:var(--muted);margin-top:1px;}
+.tag{font-size:0.62rem;padding:2px 7px;border-radius:20px;flex-shrink:0;}
 .makki{background:rgba(201,168,76,0.1);color:var(--gold);border:1px solid rgba(201,168,76,0.2);}
 .madani{background:rgba(26,58,42,0.5);color:#6db890;border:1px solid rgba(109,184,144,0.2);}
-.empty{text-align:center;color:var(--muted);padding:3rem;font-size:1rem;}
-/* Player */
-.player{
-  position:fixed;
-  bottom:0;left:0;right:0;
-  z-index:100;
-  background:rgba(8,10,13,0.98);
-  backdrop-filter:blur(20px);
-  border-top:1px solid var(--border);
-  padding:0.8rem 1.5rem;
-  display:flex;
-  align-items:center;
-  gap:1rem;
-  flex-wrap:wrap;
-  transition:transform 0.3s ease;
-}
+.player{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(10,12,15,0.98);backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:0.75rem 1.2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;transition:transform 0.3s;}
 .player.hidden{transform:translateY(100%);}
 .pinfo{flex:1;min-width:140px;}
-.ptitle{
-  font-family:'Scheherazade New',serif;
-  font-size:1.1rem;
-  color:var(--gold);
-}
-.preader{font-size:0.75rem;color:var(--muted);margin-top:2px;}
+.ptitle{font-family:'Scheherazade New',serif;font-size:1.1rem;color:var(--gold);}
+.preader{font-size:0.75rem;color:var(--muted);margin-top:1px;}
 .ctrls{display:flex;align-items:center;gap:0.5rem;}
-.btn{
-  width:38px;height:38px;
-  border-radius:50%;
-  border:1px solid var(--border);
-  background:var(--card2);
-  color:var(--text);
-  font-size:0.95rem;
-  cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:all 0.18s;
-}
+.btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);background:var(--card2);color:var(--text);font-size:0.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.18s;}
 .btn:hover{border-color:var(--gold);color:var(--gold);}
-.playbtn{
-  width:46px;height:46px;
-  background:var(--gold);
-  border-color:var(--gold);
-  color:#0a0c0f;
-  font-size:1.1rem;
-}
+.playbtn{width:46px;height:46px;background:var(--gold);border-color:var(--gold);color:#0a0c0f;font-size:1.05rem;}
 .playbtn:hover{background:var(--gold-light);}
-.prog{
-  flex:2;min-width:160px;
-  display:flex;align-items:center;gap:0.6rem;
-}
-.prog input[type=range]{
-  flex:1;height:4px;
-  -webkit-appearance:none;
-  background:var(--card2);
-  border-radius:2px;
-  outline:none;cursor:pointer;
-}
-.prog input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none;
-  width:13px;height:13px;
-  border-radius:50%;
-  background:var(--gold);
-  cursor:pointer;
-}
-.t{font-size:0.7rem;color:var(--muted);min-width:34px;text-align:center;}
-.dlbtn{
-  padding:0.42rem 0.95rem;
-  border-radius:50px;
-  border:1px solid var(--gold);
-  background:transparent;
-  color:var(--gold);
-  font-family:'Cairo',sans-serif;
-  font-size:0.78rem;
-  cursor:pointer;
-  text-decoration:none;
-  transition:all 0.18s;
-  white-space:nowrap;
-  display:inline-block;
-}
+.prog{flex:2;min-width:160px;display:flex;align-items:center;gap:0.6rem;}
+.prog input[type=range]{flex:1;height:4px;-webkit-appearance:none;background:var(--card2);border-radius:2px;outline:none;cursor:pointer;}
+.prog input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--gold);cursor:pointer;}
+.t{font-size:0.7rem;color:var(--muted);min-width:32px;}
+.dlbtn{padding:0.4rem 0.9rem;border-radius:50px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-family:'Cairo',sans-serif;font-size:0.78rem;cursor:pointer;text-decoration:none;transition:all 0.18s;white-space:nowrap;}
 .dlbtn:hover{background:var(--gold);color:#0a0c0f;}
-.vol{display:flex;align-items:center;gap:0.4rem;color:var(--muted);font-size:0.9rem;}
-.vol input[type=range]{
-  width:72px;height:4px;
-  -webkit-appearance:none;
-  background:var(--card2);
-  border-radius:2px;
-  outline:none;cursor:pointer;
-}
-.vol input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none;
-  width:11px;height:11px;
-  border-radius:50%;
-  background:var(--muted);
-  cursor:pointer;
-}
+.vol{display:flex;align-items:center;gap:0.4rem;}
+.vol input[type=range]{width:75px;height:4px;-webkit-appearance:none;background:var(--card2);border-radius:2px;outline:none;cursor:pointer;}
+.vol input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;border-radius:50%;background:var(--muted);cursor:pointer;}
+.empty{text-align:center;color:var(--muted);padding:3rem;font-size:1rem;}
 audio{display:none;}
-@media(max-width:580px){
-  .grid{grid-template-columns:1fr 1fr;gap:0.6rem;}
-  .player{gap:0.7rem;padding:0.7rem 0.9rem;}
-  .vol{display:none;}
-}
+@media(max-width:580px){.grid{grid-template-columns:1fr 1fr;gap:0.55rem;}.player{gap:0.6rem;padding:0.65rem 0.8rem;}}
 </style>
 </head>
 <body>
-
 <header>
   <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
   <h1>القرآن الكريم — استمع إلى كلام الله</h1>
   <span class="line"></span>
 </header>
-
 <div class="bar">
-  <input type="text" id="search" placeholder="🔍  ابحث عن سورة بالاسم أو الرقم..." oninput="filter()">
+  <input type="text" id="search" placeholder="ابحث عن سورة..." oninput="filter()">
   <select id="reader" onchange="changeReader()">
     <option value="ar.alafasy">مشاري العفاسي</option>
     <option value="ar.abdurrahmaansudais">عبد الرحمن السديس</option>
@@ -288,38 +73,31 @@ audio{display:none;}
     <option value="ar.saoodshuraym">سعود الشريم</option>
   </select>
 </div>
-
 <main>
-  <span class="label">السور الكريمة — ١١٤ سورة</span>
+  <p class="label">السور الكريمة — ١١٤ سورة</p>
   <div class="grid" id="grid"></div>
 </main>
-
 <div class="player hidden" id="player">
   <div class="pinfo">
     <div class="ptitle" id="ptitle">—</div>
     <div class="preader" id="preader">—</div>
   </div>
   <div class="ctrls">
-    <button class="btn" onclick="prev()" title="السابقة">⏮</button>
+    <button class="btn" onclick="prev()">⏮</button>
     <button class="btn playbtn" id="playbtn" onclick="togglePlay()">▶</button>
-    <button class="btn" onclick="next()" title="التالية">⏭</button>
+    <button class="btn" onclick="next()">⏭</button>
   </div>
   <div class="prog">
     <span class="t" id="ct">0:00</span>
     <input type="range" id="pb" min="0" max="100" value="0" oninput="seek(this.value)">
     <span class="t" id="dt">0:00</span>
   </div>
-  <div class="vol">
-    🔊
-    <input type="range" id="vol" min="0" max="1" step="0.05" value="1" oninput="setVol(this.value)">
-  </div>
+  <div class="vol">🔊<input type="range" id="vol" min="0" max="1" step="0.05" value="1" oninput="setVol(this.value)"></div>
   <a class="dlbtn" id="dl" href="#" download>⬇ تحميل</a>
 </div>
-
 <audio id="audio"></audio>
-
 <script>
-var S=[
+const S=[
   ["الفاتحة",7,"مكية"],["البقرة",286,"مدنية"],["آل عمران",200,"مدنية"],
   ["النساء",176,"مدنية"],["المائدة",120,"مدنية"],["الأنعام",165,"مكية"],
   ["الأعراف",206,"مكية"],["الأنفال",75,"مدنية"],["التوبة",129,"مدنية"],
@@ -359,72 +137,55 @@ var S=[
   ["الكافرون",6,"مكية"],["النصر",3,"مدنية"],["المسد",5,"مكية"],
   ["الإخلاص",4,"مكية"],["الفلق",5,"مكية"],["الناس",6,"مكية"]
 ];
-
-var R={
-  "ar.alafasy":"مشاري العفاسي",
-  "ar.abdurrahmaansudais":"عبد الرحمن السديس",
-  "ar.husary":"محمود خليل الحصري",
-  "ar.minshawi":"محمد صديق المنشاوي",
-  "ar.muhammadayyoub":"محمد أيوب",
-  "ar.shaatree":"أبو بكر الشاطري",
-  "ar.saoodshuraym":"سعود الشريم"
+const R={
+  "ar.alafasy":{name:"مشاري العفاسي"},
+  "ar.abdurrahmaansudais":{name:"عبد الرحمن السديس"},
+  "ar.husary":{name:"محمود خليل الحصري"},
+  "ar.minshawi":{name:"محمد صديق المنشاوي"},
+  "ar.muhammadayyoub":{name:"محمد أيوب"},
+  "ar.shaatree":{name:"أبو بكر الشاطري"},
+  "ar.saoodshuraym":{name:"سعود الشريم"}
 };
+let cur=-1,playing=false;
+const audio=document.getElementById('audio');
+const playbtn=document.getElementById('playbtn');
+const pb=document.getElementById('pb');
 
-var cur=-1, playing=false;
-var audio=document.getElementById('audio');
-var playbtn=document.getElementById('playbtn');
-var pb=document.getElementById('pb');
-
-function getUrl(i,rk){
-  return 'https://cdn.islamic.network/quran/audio-surah/128/'+rk+'/'+(i+1)+'.mp3';
+function url(i,rk){
+  return `https://cdn.islamic.network/quran/audio-surah/128/${rk}/${i+1}.mp3`;
 }
-
-function render(f){
-  var g=document.getElementById('grid');
+function render(f=''){
+  const g=document.getElementById('grid');
   g.innerHTML='';
-  var n=0;
-  for(var i=0;i<S.length;i++){
-    var s=S[i];
-    if(f && s[0].indexOf(f)===-1 && String(i+1).indexOf(f)===-1) continue;
+  let n=0;
+  S.forEach((s,i)=>{
+    if(f&&!s[0].includes(f)&&!String(i+1).includes(f))return;
     n++;
-    var d=document.createElement('div');
+    const d=document.createElement('div');
     d.className='card'+(i===cur?' active':'');
     d.id='c'+i;
-    (function(idx){d.onclick=function(){play(idx);};})(i);
-    d.innerHTML=
-      '<div class="num">'+(i+1)+'</div>'+
-      '<div class="info">'+
-        '<span class="name">'+s[0]+'</span>'+
-        '<div class="ayat">'+s[1]+' آية</div>'+
-      '</div>'+
-      '<span class="tag '+(s[2]==='مكية'?'makki':'madani')+'">'+s[2]+'</span>';
+    d.onclick=()=>play(i);
+    d.innerHTML=`<div class="num">${i+1}</div><div class="info"><span class="name">${s[0]}</span><div class="ayat">${s[1]} آية</div></div><span class="tag ${s[2]==='مكية'?'makki':'madani'}">${s[2]}</span>`;
     g.appendChild(d);
-  }
-  if(!n) g.innerHTML='<p class="empty">لا توجد نتائج</p>';
+  });
+  if(!n)g.innerHTML='<p class="empty">لا توجد نتائج</p>';
 }
-
 function play(i){
   cur=i;
-  var rk=document.getElementById('reader').value;
-  var u=getUrl(i,rk);
+  const rk=document.getElementById('reader').value;
+  const u=url(i,rk);
   audio.src=u;
   audio.load();
-  audio.play().then(function(){
-    playing=true;
-    playbtn.textContent='⏸';
-  }).catch(function(){});
+  audio.play().then(()=>{playing=true;playbtn.textContent='⏸';}).catch(()=>{});
   document.getElementById('ptitle').textContent='سورة '+S[i][0];
-  document.getElementById('preader').textContent=R[rk];
-  var dl=document.getElementById('dl');
-  dl.href=u;
-  dl.download=S[i][0]+'.mp3';
+  document.getElementById('preader').textContent=R[rk].name;
+  document.getElementById('dl').href=u;
+  document.getElementById('dl').download=S[i][0]+'.mp3';
   document.getElementById('player').classList.remove('hidden');
-  var cards=document.querySelectorAll('.card');
-  for(var j=0;j<cards.length;j++) cards[j].classList.remove('active');
-  var card=document.getElementById('c'+i);
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
+  const card=document.getElementById('c'+i);
   if(card){card.classList.add('active');card.scrollIntoView({behavior:'smooth',block:'nearest'});}
 }
-
 function togglePlay(){
   if(playing){audio.pause();playing=false;playbtn.textContent='▶';}
   else{audio.play();playing=true;playbtn.textContent='⏸';}
@@ -435,22 +196,17 @@ function seek(v){if(audio.duration)audio.currentTime=(v/100)*audio.duration;}
 function setVol(v){audio.volume=v;}
 function filter(){render(document.getElementById('search').value.trim());}
 function changeReader(){if(cur>=0)play(cur);}
-function fmt(s){
-  if(isNaN(s)||s===Infinity)return'0:00';
-  var m=Math.floor(s/60),sc=Math.floor(s%60);
-  return m+':'+(sc<10?'0':'')+sc;
-}
-
-audio.addEventListener('timeupdate',function(){
+function fmt(s){if(isNaN(s))return'0:00';const m=Math.floor(s/60),sc=Math.floor(s%60);return m+':'+(sc<10?'0':'')+sc;}
+audio.addEventListener('timeupdate',()=>{
   if(audio.duration){
-    pb.value=(audio.currentTime/audio.duration)*100;
+    pb.value=(audio.currentTime/audio.duration)*s100;
     document.getElementById('ct').textContent=fmt(audio.currentTime);
     document.getElementById('dt').textContent=fmt(audio.duration);
   }
 });
 audio.addEventListener('ended',next);
-
-render('');
+render();
 </script>
 </body>
 </html>
+EOF
