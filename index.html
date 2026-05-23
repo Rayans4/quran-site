@@ -303,16 +303,16 @@ audio{display:none;}
     <input type="text" id="search" placeholder="ابحث عن سورة بالاسم أو الرقم..." oninput="filter()">
   </div>
   <select id="reader" onchange="changeReader()">
-    <option value="7">مشاري العفاسي</option>
-    <option value="1">عبد الرحمن السديس</option>
-    <option value="2">سعود الشريم</option>
-    <option value="3">محمود خليل الحصري</option>
-    <option value="4">محمد صديق المنشاوي</option>
-    <option value="5">أبو بكر الشاطري</option>
-    <option value="6">عبد الباسط عبد الصمد</option>
-    <option value="8">سعد الغامدي</option>
-    <option value="9">ماهر المعيقلي</option>
-    <option value="10">محمد أيوب</option>
+  <option value="afs">مشاري العفاسي</option>
+  <option value="sds">عبد الرحمن السديس</option>
+  <option value="shur">سعود الشريم</option>
+  <option value="husr">محمود خليل الحصري</option>
+  <option value="minsh">محمد صديق المنشاوي</option>
+  <option value="shatri">أبو بكر الشاطري</option>
+  <option value="basit">عبد الباسط عبد الصمد</option>
+  <option value="s_gmd">سعد الغامدي</option>
+  <option value="maher">ماهر المعيقلي</option>
+  <option value="ayyub">محمد أيوب</option>
   </select>
   <div class="filter-btns">
     <button class="fbtn active" onclick="setFilter('all',this)">الكل</button>
@@ -398,17 +398,17 @@ var S=[
   ["الإخلاص",4,"مكية"],["الفلق",5,"مكية"],["الناس",6,"مكية"]
 ];
 
-var READERS={
-  "7":"مشاري العفاسي",
-  "1":"عبد الرحمن السديس",
-  "2":"سعود الشريم",
-  "3":"محمود خليل الحصري",
-  "4":"محمد صديق المنشاوي",
-  "5":"أبو بكر الشاطري",
-  "6":"عبد الباسط عبد الصمد",
-  "8":"سعد الغامدي",
-  "9":"ماهر المعيقلي",
-  "10":"محمد أيوب"
+var R={
+  "afs":"مشاري العفاسي",
+  "sds":"عبد الرحمن السديس",
+  "shur":"سعود الشريم",
+  "husr":"محمود خليل الحصري",
+  "minsh":"محمد صديق المنشاوي",
+  "shatri":"أبو بكر الشاطري",
+  "basit":"عبد الباسط عبد الصمد",
+  "s_gmd":"سعد الغامدي",
+  "maher":"ماهر المعيقلي",
+  "ayyub":"محمد أيوب"
 };
 
 var cur=-1, playing=false, typeFilter='all';
@@ -417,8 +417,20 @@ var playbtn=document.getElementById('playbtn');
 var pb=document.getElementById('pb');
 
 function getUrl(i,rid){
+  var map={
+    "afs": "https://server8.mp3quran.net/afs/",
+    "sds": "https://server11.mp3quran.net/sds/",
+    "shur": "https://server7.mp3quran.net/shur/",
+    "husr": "https://server13.mp3quran.net/husr/",
+    "minsh": "https://server10.mp3quran.net/minsh/",
+    "shatri": "https://server11.mp3quran.net/shatri/",
+    "basit": "https://server7.mp3quran.net/basit/",
+    "s_gmd": "https://server7.mp3quran.net/s_gmd/",
+    "maher": "https://server12.mp3quran.net/maher/",
+    "ayyub": "https://server8.mp3quran.net/ayyub/"
+  };
   var num=String(i+1).padStart(3,'0');
-  return 'https://server8.mp3quran.net/'+rid+'/'+num+'.mp3';
+  return map[rid]+num+'.mp3';
 }
 
 function toArabicNum(n){
@@ -468,8 +480,7 @@ function play(i){
     showNotif('⚠️ تعذّر تشغيل الملف، جرب قارئاً آخر');
   });
   document.getElementById('ptitle').textContent='سورة '+S[i][0];
-  document.getElementById('preader').textContent=READERS[rid];
-  var dl=document.getElementById('dl');
+  document.getElementById('preader').textContent=R[rid];  var dl=document.getElementById('dl');
   dl.href=u;
   dl.download='سورة_'+S[i][0]+'.mp3';
   document.getElementById('player').classList.remove('hidden');
